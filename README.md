@@ -33,9 +33,10 @@
 
 
 
-# 📖 Awsome Books With React <a name="about-project"></a>
+# 📖 OOP School Library <a name="about-project"></a>
 
-**Awsome Books With React** is a... Describe your project in 1 or 2 sentences.
+**OOP School Library** is a project where I create a basic comman line app where the user can storage information about students and books that they borrow from a library, all this is created by using objects in Ruby
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -44,7 +45,7 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://reactjs.org/">Ruby</a></li>
   </ul>
 </details>
 
@@ -54,21 +55,11 @@
 
 <!-- > Describe between 1-3 key features of the application. -->
 
-- **[Use Create React APP]**
-- **[Use React Routes]**
-- **[Use React Redux]**
+- **[Use Ruby]**
+- **[Use OOP]**
+- **[Use different methods related to classed]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-Coming soon...
-<!-- - [Live Demo Link](https://google.com) -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -81,7 +72,7 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need :
 Install this:
-Node js
+Ruby
 Visual Studio Code
 Git
 
@@ -98,7 +89,7 @@ and a open a new terminal on your visual studio code
 ### Install
 
 Install this project with:
-npm install
+It does not requiere installation
 
 
 
@@ -107,7 +98,7 @@ npm install
 ### Usage
 
 To run the project, execute the following command:
-npm run start
+ruby test.rb
 
 
 
@@ -118,7 +109,7 @@ npm run start
 ### Run tests
 
 To run tests, run the following command:
-npm run test
+ruby test.rb
 
 
 
@@ -157,7 +148,7 @@ I recomend Render since is easy to use
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **[Improve user interface]**
-- [ ] **[Improve Js code]**
+- [ ] **[Improve Ruby code]**
 - [ ] **[Implement conexion to a database]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
