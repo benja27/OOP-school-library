@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # class person
 class Person
   # we set the getter and setter for these elements - id, name and age
