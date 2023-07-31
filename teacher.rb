@@ -1,5 +1,3 @@
-
-
 require './person'
 
 # we create the class teacher

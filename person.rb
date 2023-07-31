@@ -19,11 +19,8 @@ class Person
     of_age? || @parent_permission
   end
 
-
   # private methods
   private
-
-
 
   def of_age?
     @age >= 18
