@@ -1,7 +1,8 @@
 # class person
 class Person
   # we set the getter and setter for these elements - id, name and age
-  attr_accessor :id, :name, :age
+  attr_accessor :name, :age
+  attr_reader :id
 
   # constructor
   def initialize(id, age, name = 'unknown', parent_permission: true)
