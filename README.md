@@ -134,7 +134,7 @@ I recomend Render since is easy to use
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+
 
 👤 **Mariano Benjamin**
 
