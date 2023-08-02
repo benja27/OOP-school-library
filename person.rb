@@ -8,7 +8,7 @@ class Person < Nameable
   attr_reader :id
 
   # constructor
-  def initialize( age, name = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true)
     @id = id
     @name = name
     @age = age
