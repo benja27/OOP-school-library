@@ -1,18 +1,26 @@
+require_relative 'nameable'
+
 # class person
-class Person
+class Person < Nameable
   # we set the getter and setter for these elements - id, name and age
+
   attr_accessor :name, :age
   attr_reader :id
 
   # constructor
-  def initialize(id, age, name = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true)
     @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
+    super()
   end
 
   # public methods
+
+  def correct_name
+    @name
+  end
 
   def can_use_services?
     of_age? || @parent_permission
