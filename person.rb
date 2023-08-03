@@ -1,5 +1,5 @@
 require_relative 'nameable'
-require_relative 'rental' 
+require_relative 'rental'
 
 # class person
 class Person < Nameable
@@ -21,7 +21,7 @@ class Person < Nameable
   # public methods
 
   def add_rental(book, date)
-    Rental.new(date,book, self)
+    Rental.new(date, book, self)
   end
 
   def correct_name
