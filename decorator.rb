@@ -1,4 +1,5 @@
-require './nameable'
+require_relative 'person'
+require_relative 'nameable'
 # class base decorator
 class BaseDecorator < Nameable
   def initialize(nameable)
@@ -25,3 +26,10 @@ class TrimmerDecorator < BaseDecorator
     name.length > 10 ? name[0..9] : name
   end
 end
+
+person = Person.new(22, 'maximilianus')
+person.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+puts capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+puts capitalized_trimmed_person.correct_name
