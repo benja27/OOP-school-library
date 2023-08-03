@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 # class book
 class Book
-  attr_accessor : author, : tittle, : rentals
+  attr_accessor :author, :tittle, :rentals
 
   def initialize(author, tittle)
-    @author = author 
+    @author = author
     @tittle = tittle
     @rentals = []
   end
-
 end

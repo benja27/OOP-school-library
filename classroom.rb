@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # class classroom
 class Classroom
-  attr_accessor : label 
-  attr_reader : students
+  attr_accessor :label
+  attr_reader :students
 
   def initialize(label)
-    @label = label 
+    @label = label
     @students = []
   end
 
@@ -12,5 +14,4 @@ class Classroom
     @students << self
     student.classroom = self
   end
-
 end

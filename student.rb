@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require './person'
 # we create the class student
 class Student < Person
-  attr_accessor : classroom
+  attr_accessor :classroom
 
-  def initialize( age, classroom = nil, name = 'unknown', parent_permission: true)
+  def initialize(age, classroom = nil, name = 'unknown', parent_permission: true)
     super(id, age, name, parent_permission)
     @classroom = classroom
     add_student if classroom
