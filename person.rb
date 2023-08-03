@@ -1,10 +1,11 @@
 require_relative 'nameable'
+require_relative 'rental'
 
 # class person
 class Person < Nameable
   # we set the getter and setter for these elements - id, name and age
 
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :rentals
   attr_reader :id
 
   # constructor
@@ -13,10 +14,15 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
     super()
   end
 
   # public methods
+
+  def add_rental(book, date)
+    Rental.new(date, book, self)
+  end
 
   def correct_name
     @name
