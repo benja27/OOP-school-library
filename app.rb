@@ -28,7 +28,7 @@ class App
     else
       puts 'here you have all people on record'
       @people_list.each do |person|
-        puts "ID: #{person.id} type:  [ #{person.class} ] Name: #{person.name} Age: #{person.age}  "
+        puts "ID: ${person.id} type:  [ ${person.class} ] Name: ${person.name} Age: ${person.age}  "
       end
     end
     @base.show_menu
