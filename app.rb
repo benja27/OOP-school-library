@@ -25,7 +25,7 @@ class App
   def list_all_people
     if @people_list.empty?
       puts 'there is no people on record'
-    else
+    els
       puts 'here you have all people on record'
       @people_list.each do |person|
         puts "ID: ${person.id} type:  [ ${person.class} ] Name: ${person.name} Age: ${person.age}  "
