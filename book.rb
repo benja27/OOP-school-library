@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'rental'
 # class book
 class Book
