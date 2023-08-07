@@ -1,6 +1,0 @@
-Set-up linters in your local env
-RuboCop
-Add this line to the Gemfile
-gem 'rubocop', '>= 1.0', '< 2.0'
-Run bundle install.
-Run rubocop.
