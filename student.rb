@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './person'
 # we create the class student
 class Student < Person
