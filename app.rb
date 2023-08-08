@@ -121,25 +121,35 @@ class App
   end
 
   def list_all_rentals
-    # id = gets.chomp.to_i
-
-    @people_list.each do |person|
-      puts " ID: #{person.id} Name: #{person.name}  #{person.rentals}"
-    end
-
-    print 'person ID: '
-    id = gets.chomp.to_i
-
-    puts 'Rentals'
-    @rentals_list.each do |rental|
-      if rental.person.id == id
-        puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} #{rental.person.id}"
-      end
-    end
+    display_people_and_choose_person
+    display_person_rentals
     @base.show_menu
   end
 
-  def save_info; end
+  def display_people_and_choose_person
+    puts 'People:'
+    @people_list.each do |person|
+      puts " ID: #{person.id} Name: #{person.name}"
+    end
+
+    print 'Enter person ID: '
+    @selected_person_id = gets.chomp.to_i
+  end
+
+  def display_person_rentals
+    puts "Rentals for person with ID #{@selected_person_id}:"
+    @rentals_list.each do |rental|
+      next unless rental.person.id == @selected_person_id
+
+      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+    end
+  end
+
+  def save_data
+    Storage.save_data('rentals.json', @rentals_list)
+    Storage.save_data('books.json', @book_list)
+    Storage.save_data('people.json', @people_list)
+  end
 
   def exit
     puts 'Thanks for using my app'
