@@ -6,7 +6,6 @@ require './book'
 require './rental'
 require './storage'
 require 'json'
-
 # class app
 class App
   def initialize(base)
@@ -33,7 +32,6 @@ class App
       puts 'here you have all people on record'
       @people_list.each do |person|
         puts "ID #{person.id} type: [#{person.class}] Age: #{person.age} Name: #{person.name}   "
-        # p person
       end
     end
     @base.show_menu
@@ -58,12 +56,8 @@ class App
     opt_name = gets.chomp
     print 'Hast parent permission? [y/n]: '
     opt_parent_permission = gets.chomp.downcase == 'y'
-
     @people_list.push(Student.new(opt_age, name: opt_name, parent_permission: opt_parent_permission))
-
     Storage.save_data('people.json', @people_list)
-    puts
-
     puts 'Student created successfully'
   end
 
@@ -75,9 +69,7 @@ class App
     print 'Specialization '
     specialization = gets.chomp
     @people_list.push(Teacher.new(age, specialization, name))
-
     Storage.save_data('people.json', @people_list)
-
     puts 'Teacher created successfully'
   end
 
@@ -88,7 +80,6 @@ class App
     author = gets.chomp
     @book_list.push(Book.new(author, title))
     Storage.save_data('books.json', @book_list)
-
     puts 'book created successfully...'
     @base.show_menu
   end
@@ -99,9 +90,7 @@ class App
     print 'Date: '
     date = gets.chomp
     @rentals_list.push(Rental.new(date, @book_list[book_num], @people_list[person_num]))
-
     Storage.save_data('rentals.json', @rentals_list)
-
     puts 'rental created successfully'
     @base.show_menu
   end
@@ -131,7 +120,6 @@ class App
     @people_list.each do |person|
       puts " ID: #{person.id} Name: #{person.name}"
     end
-
     print 'Enter person ID: '
     @selected_person_id = gets.chomp.to_i
   end
