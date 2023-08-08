@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'json'
-
+# A utility class for saving and loading data from JSON files.
 class Storage
   # list_of_objects =
 
