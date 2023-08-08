@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require './student'
 require './teacher'
 require './book'
 require './rental'
-require './storage' 
+require './storage'
 require 'json'
 
 # class app
 class App
   def initialize(base)
     @base = base
-    @rentals_list = Storage.load_data('rentals.json')   
+    @rentals_list = Storage.load_data('rentals.json')
     @book_list = Storage.load_data('books.json')
     @people_list = Storage.load_data('people.json')
   end
@@ -22,7 +24,7 @@ class App
       @book_list.each { |book| puts "title: #{book.title}, Author: #{book.author}" }
     end
     @base.show_menu
-  end  
+  end
 
   def list_all_people
     if @people_list.empty?
@@ -58,12 +60,10 @@ class App
     opt_parent_permission = gets.chomp.downcase == 'y'
 
     @people_list.push(Student.new(opt_age, name: opt_name, parent_permission: opt_parent_permission))
-    
-    
 
     Storage.save_data('people.json', @people_list)
     puts
-    
+
     puts 'Student created successfully'
   end
 
@@ -74,11 +74,9 @@ class App
     name = gets.chomp
     print 'Specialization '
     specialization = gets.chomp
-    @people_list.push(Teacher.new(age, specialization, name))         
-    
+    @people_list.push(Teacher.new(age, specialization, name))
 
     Storage.save_data('people.json', @people_list)
-
 
     puts 'Teacher created successfully'
   end
@@ -102,7 +100,7 @@ class App
     date = gets.chomp
     @rentals_list.push(Rental.new(date, @book_list[book_num], @people_list[person_num]))
 
-    Storage.save_data('rentals.json', @rentals_list )
+    Storage.save_data('rentals.json', @rentals_list)
 
     puts 'rental created successfully'
     @base.show_menu
@@ -124,30 +122,27 @@ class App
 
   def list_all_rentals
     # id = gets.chomp.to_i
-    
-    @people_list.each do |person| 
+
+    @people_list.each do |person|
       puts " ID: #{person.id} Name: #{person.name}  #{person.rentals}"
     end
-    
+
     print 'person ID: '
     id = gets.chomp.to_i
-    
+
     puts 'Rentals'
-    @rentals_list.each do |rental|      
-      puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} #{rental.person.id}" if rental.person.id == id
+    @rentals_list.each do |rental|
+      if rental.person.id == id
+        puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} #{rental.person.id}"
+      end
     end
     @base.show_menu
   end
 
-  def save_info
-    
-  end
-  
-  
+  def save_info; end
+
   def exit
     puts 'Thanks for using my app'
     save_info
   end
-
-
 end

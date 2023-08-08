@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'json'
 
 class Storage
-  # list_of_objects = 
-
+  # list_of_objects =
 
   def self.save_data(filename, data)
     File.write(filename, JSON.generate(data))
@@ -10,8 +11,9 @@ class Storage
 
   def self.load_data(filename)
     return [] unless File.exist?(filename)
+
     # return [] unless filename.empty?
-    
+
     data = File.read(filename)
     JSON.parse(data, create_additions: true)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './person'
 
 # we create the class teacher
@@ -15,21 +17,17 @@ class Teacher < Person
       'age' => @age,
       'id' => @id,
       'specialization' => @specialization,
-      'name' => self.name,
+      'name' => name,
       'parent_permission' => @parent_permision
     }.to_json(*args)
   end
-  
+
   def self.json_create(object)
-    new(object['age'], object['specialization'], object['name'], parent_permission: object['parent_permission'], id: object['id'])
+    new(object['age'], object['specialization'], object['name'], parent_permission: object['parent_permission'],
+                                                                 id: object['id'])
   end
-  
-  
-  
+
   def can_use_services?
     true
   end
-
-
-
 end
