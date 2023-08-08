@@ -9,9 +9,9 @@ require 'json'
 class App
   def initialize(base)
     @base = base
+    @rentals_list = Storage.load_data('rentals.json')   
     @book_list = Storage.load_data('books.json')
     @people_list = Storage.load_data('people.json')
-    @rentals_list = Storage.load_data('rentals.json')   
   end
 
   def list_all_books
@@ -22,22 +22,7 @@ class App
       @book_list.each { |book| puts "title: #{book.title}, Author: #{book.author}" }
     end
     @base.show_menu
-  end
-
-  # def read_file
-  #   File.read('students.json')
-  #   map 
-
-  #   if element.type = student 
-  #       student.new(elemtnt)
-  #       books_file = File.open('books.json')
-  #   books_file_data = books_file.read
-  #   books_json_file = JSON.parse(books_file_data)
-  #   books_json_file.each do |book|
-  #     @books << Book.new(book['publish_date'], publisher: book['publisher'], cover_state: book['cover_state'],
-  #                                              archived: book['archived'])
-  #   end
-  # end
+  end  
 
   def list_all_people
     if @people_list.empty?
@@ -74,23 +59,7 @@ class App
 
     @people_list.push(Student.new(opt_age, name: opt_name, parent_permission: opt_parent_permission))
     
-    # map = @people_list.map do  |person|
-    #   if person.class.name == "Student" 
-    #     {
-    #       type: person.class.name,
-    #       name: person.name,
-    #       age: person.age,
-    #       parent_permission: person.parent_permission
-    #     }
-    #   else      
-    #   {
-    #     type: person.class.name,
-    #     name: person.name,
-    #     age: person.age,
-    #     specialization: specialization
-    #   }
-    #   end
-    # end
+    
 
     Storage.save_data('people.json', @people_list)
     puts
@@ -105,25 +74,8 @@ class App
     name = gets.chomp
     print 'Specialization '
     specialization = gets.chomp
-    @people_list.push(Teacher.new(age, specialization, name))      
+    @people_list.push(Teacher.new(age, specialization, name))         
     
-    # map = @people_list.map do  |person|
-    #   if person.class.name == "Student" 
-    #     {
-    #       type: person.class.name,
-    #       name: person.name,
-    #       age: person.age,
-    #       parent_permission: person.parent_permission
-    #     } 
-    #   else     
-    #     {
-    #       type: person.class.name,
-    #       name: person.name,
-    #       age: person.age,
-    #       specialization: person.specialization
-    #     }
-    #   end
-    # end
 
     Storage.save_data('people.json', @people_list)
 
@@ -174,15 +126,14 @@ class App
     # id = gets.chomp.to_i
     
     @people_list.each do |person| 
-      puts " ID: #{person.id} Name: #{person.name}  "
+      puts " ID: #{person.id} Name: #{person.name}  #{person.rentals}"
     end
     
     print 'person ID: '
     id = gets.chomp.to_i
     
     puts 'Rentals'
-    @rentals_list.each do |rental|
-      puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} #{rental.person.id}"
+    @rentals_list.each do |rental|      
       puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} #{rental.person.id}" if rental.person.id == id
     end
     @base.show_menu
