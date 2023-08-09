@@ -19,7 +19,7 @@ class Options
     puts '5 - create a rental'
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
-    user_choice = gets.chomp
+    user_choice = gets.chomp || 'none'
     select_option(user_choice)
   end
 

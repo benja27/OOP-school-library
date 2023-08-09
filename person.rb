@@ -5,12 +5,13 @@ require_relative 'rental'
 class Person < Nameable
   # we set the getter and setter for these elements - id, name and age
 
-  attr_accessor :name, :age, :rentals
-  attr_reader :id
+  attr_accessor :name, :age, :rentals, :id
+
+  # attr_reader :id
 
   # constructor
-  def initialize(age, name = 'unknown', parent_permission: true)
-    @id = rand(1..999)
+  def initialize(age, name = 'unknown', parent_permission: true, id: nil)
+    @id = id || rand(1..999)
     @name = name
     @age = age
     @parent_permission = parent_permission
