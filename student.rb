@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 require './person'
 # we create the class student
 class Student < Person
   attr_accessor :classroom, :parent_permission
 
-  def initialize(age, name: 'unknown', parent_permission: true, classroom: nil, id: 0)
+  def initialize(age, name: 'unknown', parent_permission: true, classroom: nil, id: nil)
     super(age, name, parent_permission: parent_permission, id: id)
     @classroom = classroom
   end

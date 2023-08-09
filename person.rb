@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'nameable'
 require_relative 'rental'
 
@@ -12,8 +10,8 @@ class Person < Nameable
   # attr_reader :id
 
   # constructor
-  def initialize(age, name = 'unknown', parent_permission: true, id: 0)
-    @id = id.zero? ? rand(1..999) : id
+  def initialize(age, name = 'unknown', parent_permission: true, id: nil)
+    @id = id || rand(1..999)
     @name = name
     @age = age
     @parent_permission = parent_permission

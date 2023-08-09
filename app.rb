@@ -1,11 +1,10 @@
-# frozen_string_literal: true
-
 require './student'
 require './teacher'
 require './book'
 require './rental'
 require './storage'
 require 'json'
+require './create_object'
 # class app
 class App
   def initialize(base)
@@ -42,35 +41,11 @@ class App
     type_of_person = gets.chomp
     case type_of_person
     when '1'
-      create_student
+      CreateObject.create_student(@people_list)
     when '2'
-      create_teacher
+      CreateObject.create_teacher(@people_list)
     end
     @base.show_menu
-  end
-
-  def create_student
-    print 'Age: '
-    opt_age = gets.chomp.to_i
-    print 'Neme: '
-    opt_name = gets.chomp
-    print 'Hast parent permission? [y/n]: '
-    opt_parent_permission = gets.chomp.downcase == 'y'
-    @people_list.push(Student.new(opt_age, name: opt_name, parent_permission: opt_parent_permission))
-    Storage.save_data('people.json', @people_list)
-    puts 'Student created successfully'
-  end
-
-  def create_teacher
-    print 'Age: '
-    age = gets.chomp.to_i
-    print 'Neme: '
-    name = gets.chomp
-    print 'Specialization '
-    specialization = gets.chomp
-    @people_list.push(Teacher.new(age, specialization, name))
-    Storage.save_data('people.json', @people_list)
-    puts 'Teacher created successfully'
   end
 
   def create_book
@@ -133,14 +108,7 @@ class App
     end
   end
 
-  def save_data
-    Storage.save_data('rentals.json', @rentals_list)
-    Storage.save_data('books.json', @book_list)
-    Storage.save_data('people.json', @people_list)
-  end
-
   def exit
     puts 'Thanks for using my app'
-    save_info
   end
 end
